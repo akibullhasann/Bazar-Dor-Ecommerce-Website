@@ -3,6 +3,7 @@ import { Noto_Sans_Bengali } from "next/font/google";
 import "./globals.css";
 import Header from "@/component/Header";
 import DateProvider from "@/contextApi/DateContext";
+import Marquee from "@/component/Marquee";
 
 
 
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <DateProvider>
           <Header></Header>
+          <Marquee></Marquee>
           <main>{children}</main>
         </DateProvider>
       </body>
