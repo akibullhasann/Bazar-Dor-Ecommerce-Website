@@ -9,11 +9,11 @@ const Header = () => {
     //     dateStyle: "full",
     // });
     return (
-        <header>
+        <header className="bg-white">
             <div className="flex justify-between container mx-auto items-center ">
                 <div className="flex items-center gap-3">
                     <div className="bg-[#05893E] p-4 rounded-2xl">
-                        <Image src={Logo} height={25} width={25} alt="Bazar-Dor"></Image>
+                        <Image src={Logo} height={20} width={20} alt="Bazar-Dor"></Image>
                     </div>
                     <div>
                         <h2 className="font-bold text-2xl">বাজার দর</h2>

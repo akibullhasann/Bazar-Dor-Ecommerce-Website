@@ -16,7 +16,7 @@ const Marquee = async () => {
     const data: Imarquee[] = await res.json();
     console.log(data);
     return (
-        <div>
+        <div className='bg-white'>
             <div className="flex items-center gap-10 px-4 pb-2
             max-w-7xl mx-auto  
             ">
