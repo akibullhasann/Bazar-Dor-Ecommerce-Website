@@ -1,17 +1,20 @@
 
 import { IpriceHikes } from './../TypeScript/Price_hikes';
 
-const Prices_hikes = async () => {
+const All_products = async () => {
     const res = await fetch("https://api.api-store.workers.dev/api/bazardor/products");
-    const data = await res.json();
-    const pricesHikes: IpriceHikes[] = data.filter((d: IpriceHikes) => d.change.dir === "up");
-    console.log("hi ia m", pricesHikes);
+    const data:IpriceHikes[] = await res.json();
+    // const pricesHikes: IpriceHikes[] = data.filter((d: IpriceHikes) => d.change.dir === "up");
+    // console.log("hi ia m", pricesHikes);
     return (
         <div className="py-5 ">
-            <p className='mb-3'><span className='text-red-500'>▲</span ><span className='text-3xl font-semibold'>আজ দাম বেড়েছে</span></p>
+            <div className='mb-3'>
+                <p className='mb-1'><span className='text-3xl font-semibold'>সব পণ্য</span></p>
+                <p>মোট {data.length}টি পণ্য দেখানো হচ্ছে</p>
+            </div>
 
             <div className='grid grid-cols-3 gap-4 mb-3 '>
-                {pricesHikes.map((ph) => <div key={ph.id} className='bg-white rounded-xl flex flex-col gap-4  border border-gray-100 px-4 py-3 '>
+                {data.map((ph) => <div key={ph.id} className='bg-white rounded-xl flex flex-col gap-4  border border-gray-100 px-4 py-3 '>
                     <div className='flex items-center gap-4'>
                         <div className='text-6xl bg-[#F0F5F0] rounded-2xl'>{ph.image}</div>
                         <div>
@@ -32,4 +35,4 @@ const Prices_hikes = async () => {
     );
 };
 
-export default Prices_hikes;
+export default All_products;

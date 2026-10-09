@@ -1,14 +1,14 @@
 
 import { IpriceHikes } from './../TypeScript/Price_hikes';
 
-const Prices_hikes = async () => {
+const Prices_reduced = async () => {
     const res = await fetch("https://api.api-store.workers.dev/api/bazardor/products");
     const data = await res.json();
-    const pricesHikes: IpriceHikes[] = data.filter((d: IpriceHikes) => d.change.dir === "up");
+    const pricesHikes: IpriceHikes[] = data.filter((d: IpriceHikes) => d.change.dir === "down");
     console.log("hi ia m", pricesHikes);
     return (
         <div className="py-5 ">
-            <p className='mb-3'><span className='text-red-500'>▲</span ><span className='text-3xl font-semibold'>আজ দাম বেড়েছে</span></p>
+            <p className='mb-3 flex items-center gap-2'><span className='text-green-500'>▼</span ><span className='text-3xl font-semibold'>আজ দাম কমেছে</span></p>
 
             <div className='grid grid-cols-3 gap-4 mb-3 '>
                 {pricesHikes.map((ph) => <div key={ph.id} className='bg-white rounded-xl flex flex-col gap-4  border border-gray-100 px-4 py-3 '>
@@ -24,7 +24,7 @@ const Prices_hikes = async () => {
                             <p className=''>আজকের দাম</p>
                             <p><span className='text-2xl mr-2'>{ph.today}</span>টাকা</p>
                         </div>
-                        <p><span className='text-red-900'>▲</span>{ph.change.pct}%</p>
+                        <p><span className='text-green-900'>▼</span>{ph.change.pct}%</p>
                     </div>
                 </div>)}
             </div>
@@ -32,4 +32,4 @@ const Prices_hikes = async () => {
     );
 };
 
-export default Prices_hikes;
+export default Prices_reduced;
