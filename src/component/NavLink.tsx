@@ -3,9 +3,12 @@ import Link from "next/link";
 
 
 const NavLink = async () => {
-    const res = await fetch("https://api.api-store.workers.dev/api/bazardor/categories");
+    const res = await fetch("https://openapi.programming-hero.com/api/bazardor/categories");
     const data: IcategoryNavs[] = await res.json();
     console.log(data);
+    if(!data){
+        alert("not data")
+    }
     return (
         <div className="border-t border-gray-300 mt-3">
             <div className="flex justify-start gap-7 container mx-auto py-3">

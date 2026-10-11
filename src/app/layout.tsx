@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/component/Header";
 import DateProvider from "@/contextApi/DateContext";
 import Marquee from "@/component/Marquee";
+import { Suspense } from "react";
 
 
 
@@ -28,7 +29,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col bg-[#F0F5F0]">
         <DateProvider>
           <Header></Header>
-          <Marquee></Marquee>
+          <Suspense
+            fallback={
+              <div className="mx-auto w-full max-w-7xl px-4 py-3">
+                <div className="h-10 animate-pulse rounded-lg bg-gray-200" />
+              </div>
+            }
+          >
+            <Marquee />
+          </Suspense>
           <main>{children}</main>
         </DateProvider>
       </body>

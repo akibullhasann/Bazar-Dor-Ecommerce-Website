@@ -2,7 +2,7 @@
 import { IpriceHikes } from './../TypeScript/Price_hikes';
 
 const Prices_reduced = async () => {
-    const res = await fetch("https://api.api-store.workers.dev/api/bazardor/products");
+    const res = await fetch("https://openapi.programming-hero.com/api/bazardor/products");
     const data = await res.json();
     const pricesHikes: IpriceHikes[] = data.filter((d: IpriceHikes) => d.change.dir === "down");
     console.log("hi ia m", pricesHikes);
@@ -24,7 +24,7 @@ const Prices_reduced = async () => {
                             <p className=''>আজকের দাম</p>
                             <p><span className='text-2xl mr-2'>{ph.today}</span>টাকা</p>
                         </div>
-                        <p><span className='text-green-900'>▼</span>{ph.change.pct}%</p>
+                        <p><span className='text-green\-900'>▼</span>{ph.change.pct}%</p>
                     </div>
                 </div>)}
             </div>

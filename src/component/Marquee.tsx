@@ -12,7 +12,7 @@ import React from 'react';
 import MarqueeText from 'react-marquee-text';
 
 const Marquee = async () => {
-    const res = await fetch("https://api.api-store.workers.dev/api/bazardor/products");
+    const res = await fetch("https://openapi.programming-hero.com/api/bazardor/products");
     const data: Imarquee[] = await res.json();
     console.log(data);
     return (

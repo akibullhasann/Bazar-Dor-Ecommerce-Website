@@ -2,7 +2,7 @@
 import { IpriceHikes } from './../TypeScript/Price_hikes';
 
 const Prices_hikes = async () => {
-    const res = await fetch("https://api.api-store.workers.dev/api/bazardor/products");
+    const res = await fetch("https://openapi.programming-hero.com/api/bazardor/products");
     const data = await res.json();
     const pricesHikes: IpriceHikes[] = data.filter((d: IpriceHikes) => d.change.dir === "up");
     console.log("hi ia m", pricesHikes);
