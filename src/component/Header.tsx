@@ -4,6 +4,7 @@ import React, { Suspense } from 'react';
 import Date from "@/shared_Componet/Date";
 import NavLink from "./NavLink";
 import Link from "next/link";
+import UserInfo from "./UserInfo";
 
 const Header = () => {
     // const date = new Date().toLocaleDateString("bn-BD", {
@@ -25,11 +26,9 @@ const Header = () => {
                     </div>
                 </Link>
 
-                <div>
-                    {/* profile Image */}
-                    <div></div>
-                    <p>Rizwan</p>
-                </div>
+                <UserInfo></UserInfo>
+    
+                
             </div>
 
             {/* <NavLink></NavLink> */}

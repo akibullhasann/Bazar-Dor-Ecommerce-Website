@@ -5,6 +5,7 @@ import Header from "@/component/Header";
 import DateProvider from "@/contextApi/DateContext";
 import Marquee from "@/component/Marquee";
 import { Suspense } from "react";
+import { ToastContainer } from "react-toastify";
 
 
 
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <Marquee />
           </Suspense>
           <main>{children}</main>
+           <ToastContainer />
         </DateProvider>
       </body>
     </html>
