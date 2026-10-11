@@ -25,7 +25,7 @@ const Marquee = async () => {
                     pauseOnHover={true}
                     direction="right"
                 >
-                    {data.map((d) => <Link className='inline-flex border-y  border-r border-gray-200 py-2 px-3' key={d.id} href={`/products/${d.id}`}>
+                    {data.map((d) => <Link className='inline-flex border-y  border-r border-gray-200 py-2 px-3' key={d.id} href={`/singlepage/${d.id}`}>
                         <div className='flex gap-2  '>
                             <div>
                                 <span>{d.image}</span>
