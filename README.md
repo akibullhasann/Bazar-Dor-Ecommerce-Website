@@ -10,7 +10,7 @@ Next.js 16 (App Router)
 React
 TypeScript
 Tailwind CSS
-DaisyUI
+DaisyUIg
 Better Auth (for login and sign up)
 React Toastify (for messages)
 React Icons
