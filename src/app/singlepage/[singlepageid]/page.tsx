@@ -10,7 +10,10 @@ const SingleDataPage = async ({
     const { singlepageid } = await params;
 
     const res = await fetch(
-        `https://api.abcz.workers.dev/api/bazardor/products/${singlepageid}`
+        `https://api.abcz.workers.dev/api/bazardor/products/${singlepageid}`,
+        {
+            next: { revalidate: 300 }, // ৩০০ সেকেন্ড (৫ মিনিট) cache থাকবে
+        }
     );
 
     if (!res.ok) {

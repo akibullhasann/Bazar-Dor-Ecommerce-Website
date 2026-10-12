@@ -4,17 +4,25 @@
 import { Iproduct } from '@/TypeScript/Product';
 import Image from 'next/image';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import React from 'react';
 
 const CategoryPage = async ({ params }: { params: Promise<{ categoryid: string }> }) => {
     const { categoryid } = await params;
 
-    const res = await fetch(`https://openapi.programming-hero.com/api/bazardor/products?category=${categoryid}`);
+    const res = await fetch(
+        `https://openapi.programming-hero.com/api/bazardor/products?category=${categoryid}`,
+        { next: { revalidate: 300 } }
+    );
 
     if (!res.ok) {
         throw new Error("Products fetch করা যায়নি");
     }
     const data: Iproduct[] = await res.json();
+
+    if (!Array.isArray(data) || data.length === 0) {
+        notFound();
+    }
 
     const categoryName = data[0]?.categoryNameBn ?? "পণ্য";
     const categoryIcon = data[0]?.categoryIcon ?? "🛒";

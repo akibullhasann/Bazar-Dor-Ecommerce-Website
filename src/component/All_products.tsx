@@ -1,4 +1,5 @@
 
+import Link from 'next/link';
 import { IpriceHikes } from './../TypeScript/Price_hikes';
 
 const All_products = async () => {
@@ -13,8 +14,8 @@ const All_products = async () => {
                 <p>মোট {data.length}টি পণ্য দেখানো হচ্ছে</p>
             </div>
 
-            <div className='grid grid-cols-3 gap-4 mb-3 '>
-                {data.map((ph) => <div key={ph.id} className='bg-white rounded-xl flex flex-col gap-4  border border-gray-100 px-4 py-3 '>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-3 '>
+                {data.map((ph) => <Link href={`/singlepage/${ph.id}`} key={ph.id} className='bg-white rounded-xl flex flex-col gap-4  border border-gray-100 px-4 py-3 '>
                     <div className='flex items-center gap-4'>
                         <div className='text-6xl bg-[#F0F5F0] rounded-2xl'>{ph.image}</div>
                         <div>
@@ -29,7 +30,7 @@ const All_products = async () => {
                         </div>
                         <p><span className='text-red-900'>▲</span>{ph.change.pct}%</p>
                     </div>
-                </div>)}
+                </Link>)}
             </div>
         </div>
     );

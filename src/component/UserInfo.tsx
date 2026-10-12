@@ -63,7 +63,7 @@ const UserInfo = () => {
 
             {open && (
                 <>
-                    {/* বাইরে ক্লিক করলে বন্ধ করার জন্য overlay */}
+                    
                     <div
                         className="fixed inset-0 z-40"
                         onClick={() => setOpen(false)}

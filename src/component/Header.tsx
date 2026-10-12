@@ -11,7 +11,7 @@ const Header = () => {
     //     dateStyle: "full",
     // });
     return (
-        <header className="bg-white">
+        <header className="bg-white fixed top-0 left-0 right-0 z-50 pt-5">
             <div className="flex justify-between container mx-auto items-center ">
                 <Link href="/">
                     <div className="flex items-center gap-3">
